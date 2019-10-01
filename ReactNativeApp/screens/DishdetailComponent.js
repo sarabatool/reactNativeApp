@@ -1,7 +1,7 @@
 import React from 'react';
-import {ScrollView, StyleSheet, Text, FlatList} from 'react-native';
+import {ScrollView, StyleSheet, Text, FlatList, View} from 'react-native';
 import * as leaders from '../shared/leaders';
-import {Card ,ListItem} from "react-native-elements";
+import {Card ,ListItem, Rating} from "react-native-elements";
 
 export default function DishDetail() {
     return (
@@ -14,7 +14,10 @@ export default function DishDetail() {
 
 const History =()=> {
     return (
-        <Card title="Our History">
+        <Card
+            title="Uttappizza"
+            image={require('../assets/images/robot-dev.png')}
+        >
             <Text style={styles.regularText}>Started in 2010, Ristorante con Fusion quickly established itself as a culinary icon par excellence in Hong Kong. With its unique brand of world fusion cuisine that can be found nowhere else, it enjoys patronage from the A-list clientele in Hong Kong.  Featuring four of the best three-star Michelin chefs in the world, you never know what will arrive on your plate the next time you visit us. </Text>
 
             <Text style={styles.regularText}>The restaurant traces its humble beginnings to The Frying Pan, a successful chain started by our CEO, Mr. Peter Pan, that featured for the first time the world's best cuisines in a pan.</Text>
@@ -24,7 +27,7 @@ const History =()=> {
 
 const CorporateLeaderShip =() => {
     return (
-        <Card title="Corporate Leadership">
+        <Card title="Comments">
             <FlatList
                 style={styles.list}
                 data={leaders.default.leadersList}
@@ -40,9 +43,18 @@ const renderListItem = (item, index) => {
         <ListItem
             key={index}
             title={item.name}
-            subtitle={<Text style={styles.secondaryText}>{item.description}</Text>}
+            subtitle={
+                <View>
+                    <Rating
+                        onFinishRating={this.ratingCompleted}
+                        style={{ paddingVertical: 10 }}
+                        readonly
+                        imageSize={20}
+                    />
+                    <Text style={styles.secondaryText}>{item.description}</Text>
+                </View>
+            }
             hideChevron={true}
-            leftAvatar={{source: require('../assets/images/profile_placeholder.jpg')}}
         />
     );
 }
