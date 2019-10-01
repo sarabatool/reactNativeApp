@@ -5,6 +5,7 @@ import TabBarIcon from '../components/TabBarIcon';
 import HomeScreen from '../screens/HomeScreen';
 import AboutComponent from '../screens/AboutComponent';
 import ContactComponent from '../screens/ContactComponent';
+import DishDetailComponent from '../screens/DishdetailComponent';
 
 const config = Platform.select({
     web: { headerMode: 'screen' },
@@ -66,10 +67,28 @@ ContactUs.navigationOptions = {
 
 ContactUs.path = '';
 
+const DishDetail = createStackNavigator(
+    {
+        Links: DishDetailComponent,
+    },
+    config
+);
+
+DishDetail.navigationOptions = {
+    tabBarLabel: 'Dish Detail',
+    tabBarIcon: ({ focused }) => (
+        <TabBarIcon focused={focused} name={Platform.OS === 'ios' ? 'ios-options' : 'md-options'} />
+    ),
+};
+
+DishDetail.path = '';
+
+
 const tabNavigator = createDrawerNavigator({
     Home,
     AboutUs: AboutUsComponent,
     ContactUs,
+    DishDetail,
 });
 
 tabNavigator.path = '';
