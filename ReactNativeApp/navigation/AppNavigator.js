@@ -1,7 +1,7 @@
 import React from 'react';
 import { createAppContainer, createSwitchNavigator } from 'react-navigation';
 
-import MainTabNavigator from './HomeComponent';
+import MainTabNavigator from './MainComponent';
 
 export default createAppContainer(
   createSwitchNavigator({
