@@ -1,7 +1,7 @@
 import React from 'react';
 import {ScrollView, StyleSheet, Text, FlatList, View, Image} from 'react-native';
 import * as leaders from '../shared/leaders';
-import {Card} from "react-native-elements";
+import {Card ,ListItem} from "react-native-elements";
 
 export default function AboutComponent() {
     return (
@@ -28,24 +28,22 @@ const CorporateLeaderShip =() => {
             <FlatList
                     style={styles.list}
                     data={leaders.default.leadersList}
-                    renderItem={({item}) => ( ListItem(item))}
+                    renderItem={({item,index}) => ( renderListItem(item,index))}
+                    keyExtractor={item => item.id.toString()}
             />
         </Card>
     )
 };
 
-const ListItem = (item) => {
+const renderListItem = (item, index) => {
     return (
-        <View style={{flex:1, flexDirection:'row'}}>
-            <Image
-                style={styles.stretch}
-                source={item.picture}
-            />
-            <View style={{flex:1, flexDirection:'column'}}>
-            <Text style={styles.primaryHeading}>{item.name}</Text>
-            <Text style={styles.secondaryText}>{item.description}</Text>
-            </View>
-        </View>
+        <ListItem
+            key={index}
+            title={item.name}
+            subtitle={<Text style={styles.secondaryText}>{item.description}</Text>}
+            hideChevron={true}
+            leftAvatar={{source: require('../assets/images/profile_placeholder.jpg')}}
+        />
     );
 }
 
@@ -101,8 +99,6 @@ const styles = StyleSheet.create({
     secondaryText: {
         color: '#807c7c',
         fontSize: 14,
-        margin:6,
-        paddingStart:10,
     },
     list: {
         flexGrow: 0,
