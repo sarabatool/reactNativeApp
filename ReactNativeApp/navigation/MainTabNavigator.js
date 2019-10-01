@@ -3,7 +3,7 @@ import { Platform } from 'react-native';
 import { createStackNavigator, createDrawerNavigator } from 'react-navigation';
 import TabBarIcon from '../components/TabBarIcon';
 import HomeScreen from '../screens/HomeScreen';
-import AboutUs from '../screens/AboutUs';
+import AboutComponent from '../screens/AboutComponent';
 import ContactComponent from '../screens/ContactComponent';
 
 const config = Platform.select({
@@ -36,7 +36,7 @@ Home.path = '';
 
 const AboutUsComponent = createStackNavigator(
     {
-        Links: AboutUs,
+        Links: AboutComponent,
     },
     config
 );
@@ -52,7 +52,7 @@ AboutUsComponent.path = '';
 
 const ContactUs = createStackNavigator(
     {
-        Settings: ContactComponent,
+        Links: ContactComponent,
     },
     config
 );
@@ -68,7 +68,7 @@ ContactUs.path = '';
 
 const tabNavigator = createDrawerNavigator({
     Home,
-    AboutUs,
+    AboutUs: AboutUsComponent,
     ContactUs,
 });
 
