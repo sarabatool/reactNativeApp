@@ -43,13 +43,15 @@ const CorporateLeaderShip =() => {
 
 const ListItem = (item) => {
     return (
-        <View style={{flex:1, flexDirection:'column'}}>
+        <View style={{flex:1, flexDirection:'row'}}>
             <Image
-                style={{width: 50, height: 50}}
+                style={styles.stretch}
                 source={item.picture}
             />
+            <View style={{flex:1, flexDirection:'column'}}>
             <Text style={styles.primaryHeading}>{item.name}</Text>
             <Text style={styles.secondaryText}>{item.description}</Text>
+            </View>
         </View>
     );
 }
@@ -100,13 +102,13 @@ const styles = StyleSheet.create({
         fontWeight: 'bold',
         color: 'black',
         fontSize: 14,
-        margin:10,
+        margin:6,
         paddingStart:10,
     },
     secondaryText: {
-        color: '#D3D3D3',
+        color: '#807c7c',
         fontSize: 14,
-        margin:10,
+        margin:6,
         paddingStart:10,
     },
     list: {
@@ -114,7 +116,10 @@ const styles = StyleSheet.create({
     },
     stretch: {
         width: 50,
-        height: 200,
-        resizeMode: 'contain'
-    }
+        height: 50,
+        justifyContent: 'center',
+        alignItems: 'center',
+        alignSelf: 'center',
+        margin:6,
+    },
 });
