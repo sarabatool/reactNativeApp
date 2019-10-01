@@ -1,6 +1,7 @@
 import React from 'react';
-import {ScrollView, StyleSheet, Text, View, FlatList, Image} from 'react-native';
+import {ScrollView, StyleSheet, Text, FlatList, View, Image} from 'react-native';
 import * as leaders from '../shared/leaders';
+import {Card} from "react-native-elements";
 
 export default function AboutComponent() {
     return (
@@ -13,31 +14,23 @@ export default function AboutComponent() {
 
 const History =()=> {
     return (
-        <ScrollView style={styles.container}>
-            <View style={styles.cardView}>
-                <Text style={styles.title}>Our History</Text>
-                <View style={styles.separator}/>
+           <Card title="Our History">
                 <Text style={styles.regularText}>Started in 2010, Ristorante con Fusion quickly established itself as a culinary icon par excellence in Hong Kong. With its unique brand of world fusion cuisine that can be found nowhere else, it enjoys patronage from the A-list clientele in Hong Kong.  Featuring four of the best three-star Michelin chefs in the world, you never know what will arrive on your plate the next time you visit us. </Text>
 
                  <Text style={styles.regularText}>The restaurant traces its humble beginnings to The Frying Pan, a successful chain started by our CEO, Mr. Peter Pan, that featured for the first time the world's best cuisines in a pan.</Text>
-            </View>
-        </ScrollView>
+           </Card>
     )
 };
 
 const CorporateLeaderShip =() => {
     return (
-        <ScrollView style={styles.container}>
-            <View style={styles.cardView}>
-                <Text style={styles.title}>Corporate Leadership</Text>
-                <View style={styles.separator}/>
-                <FlatList
+        <Card title="Corporate Leadership">
+            <FlatList
                     style={styles.list}
                     data={leaders.default.leadersList}
                     renderItem={({item}) => ( ListItem(item))}
-                />
-            </View>
-        </ScrollView>
+            />
+        </Card>
     )
 };
 
