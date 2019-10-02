@@ -2,8 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="2a30bf31-b43f-46ac-84a5-a0a295927f7d" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/ReactNativeApp/assets/images/pizza_bg.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ReactNativeApp/screens/DishdetailComponent.js" beforeDir="false" afterPath="$PROJECT_DIR$/ReactNativeApp/screens/DishdetailComponent.js" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
@@ -20,8 +18,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/ReactNativeApp/screens/DishdetailComponent.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="382">
-              <caret line="36" column="2" lean-forward="true" selection-start-line="36" selection-start-column="2" selection-end-line="36" selection-end-column="2" />
+            <state relative-caret-position="1680">
+              <caret line="120" lean-forward="true" selection-start-line="120" selection-end-line="120" />
               <folding>
                 <element signature="e#0#26#0" expanded="true" />
               </folding>
@@ -64,6 +62,9 @@
       <find>regularText</find>
       <find>textView</find>
       <find>secondaryText</find>
+      <find>renderListItem</find>
+      <find>onAddComment</find>
+      <find>item</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -154,15 +155,16 @@
       <workItem from="1567056396319" duration="3000" />
       <workItem from="1569909473179" duration="7934000" />
       <workItem from="1569924010303" duration="4529000" />
-      <workItem from="1569990302887" duration="10704000" />
+      <workItem from="1569990302887" duration="14015000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="24854000" />
+    <option name="totallyTimeSpent" value="28165000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="13" y="115" width="1203" height="797" extended-state="0" />
+    <editor active="true" />
     <layout>
       <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.24957699" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
@@ -336,8 +338,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/ReactNativeApp/screens/DishdetailComponent.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="382">
-          <caret line="36" column="2" lean-forward="true" selection-start-line="36" selection-start-column="2" selection-end-line="36" selection-end-column="2" />
+        <state relative-caret-position="1680">
+          <caret line="120" lean-forward="true" selection-start-line="120" selection-end-line="120" />
           <folding>
             <element signature="e#0#26#0" expanded="true" />
           </folding>
