@@ -1,5 +1,5 @@
 import React from 'react';
-import {ScrollView, StyleSheet, Text, FlatList, View} from 'react-native';
+import {ScrollView, StyleSheet, Text, FlatList, View, ImageBackground, Button} from 'react-native';
 import * as leaders from '../shared/leaders';
 import {Card ,ListItem, Rating} from "react-native-elements";
 
@@ -14,15 +14,26 @@ export default function DishDetail() {
 
 const History =()=> {
     return (
-        <Card
-            title="Uttappizza"
-            image={require('../assets/images/robot-dev.png')}
-        >
-            <Text style={styles.regularText}>Started in 2010, Ristorante con Fusion quickly established itself as a culinary icon par excellence in Hong Kong. With its unique brand of world fusion cuisine that can be found nowhere else, it enjoys patronage from the A-list clientele in Hong Kong.  Featuring four of the best three-star Michelin chefs in the world, you never know what will arrive on your plate the next time you visit us. </Text>
+        <Card style={{flex:1}}>
+            <ImageBackground
 
-            <Text style={styles.regularText}>The restaurant traces its humble beginnings to The Frying Pan, a successful chain started by our CEO, Mr. Peter Pan, that featured for the first time the world's best cuisines in a pan.</Text>
+                source={require( '../assets/images/pizza_bg.jpg')}
+                style={styles.imgStyle}
+            >
+                <View style={styles.centerAlign}>
+                    <Text style={styles.textStyle}>Uthappizza</Text>
+                </View>
+            </ImageBackground>
+            <Text style={styles.regularText}>Uttapam (aka Uttappa or Oothapam) is yet another healthy breakfast recipe from South Indian cuisine prepared with a common rice and urad dal batter used for preparing Idli and dosa.
+            </Text>
+
+            <Button title='Add Comment' onPress={onAddComment}/>
         </Card>
     )
+};
+
+const onAddComment = () => {
+ console.warn('Edit Comment');
 };
 
 const CorporateLeaderShip =() => {
@@ -42,16 +53,16 @@ const renderListItem = (item, index) => {
     return (
         <ListItem
             key={index}
-            title={item.name}
+            title={item.description}
+            titleStyle={styles.secondaryText}
             subtitle={
-                <View>
+                <View style={{margin: 0 }}>
                     <Rating
-                        onFinishRating={this.ratingCompleted}
-                        style={{ paddingVertical: 10 }}
+                        style={{flex:1,alignItems: 'flex-start', paddingVertical: 10}}
                         readonly
                         imageSize={20}
                     />
-                    <Text style={styles.secondaryText}>{item.description}</Text>
+                    <Text style={styles.secondaryText}>{item.name}</Text>
                 </View>
             }
             hideChevron={true}
@@ -97,8 +108,7 @@ const styles = StyleSheet.create({
     regularText: {
         color: 'black',
         fontSize: 14,
-        margin:10,
-        paddingStart:10,
+        marginTop:6,
     },
 
     primaryHeading: {
@@ -109,7 +119,7 @@ const styles = StyleSheet.create({
         paddingStart:10,
     },
     secondaryText: {
-        color: '#807c7c',
+        color: 'black',
         fontSize: 14,
     },
     list: {
@@ -123,4 +133,26 @@ const styles = StyleSheet.create({
         alignSelf: 'center',
         margin:6,
     },
+    textStyle: {
+        fontWeight: 'bold',
+        color: 'white',
+        textAlign: 'center',
+        fontSize: 20,
+
+
+    },
+    centerAlign:{
+        flex: 1,
+        justifyContent: 'center',
+        alignItems: 'center',
+        width: '100%'
+    },
+    imgStyle:{
+        width:'100%',
+        height:100,
+        flexDirection: 'column',
+        justifyContent: 'center',
+        alignItems: 'center'
+    }
+
 });
