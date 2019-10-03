@@ -1,7 +1,7 @@
 import React from 'react';
-import {ScrollView, StyleSheet, Text, FlatList, View, ImageBackground, Button, Modal} from 'react-native';
+import {ScrollView, StyleSheet, Text, FlatList, View, ImageBackground, Modal} from 'react-native';
 import * as leaders from '../shared/leaders';
-import {Card ,ListItem, Rating, Input} from "react-native-elements";
+import {Card ,ListItem, Rating, Input, Button} from "react-native-elements";
 
 class  DishDetail extends React.Component {
 
@@ -47,7 +47,11 @@ class  DishDetail extends React.Component {
                 <Text style={styles.regularText}>Uttapam (aka Uttappa or Oothapam) is yet another healthy breakfast recipe from South Indian cuisine prepared with a common rice and urad dal batter used for preparing Idli and dosa.
                 </Text>
 
-                <Button title='Add Comment' onPress={this.toggleCommentModal}/>
+                <Button
+                    type="clear"
+                    icon={{ type: 'font-awesome', name: 'pencil' }}
+                    onPress={this.toggleCommentModal}
+                />
             </Card>
         )
     };
@@ -74,23 +78,40 @@ class  DishDetail extends React.Component {
 
     addCommentModal =() => {
         return (
-            <View style={{margin: 20 }}>
+            <View style={{margin: 20, marginTop: 30 }}>
                 <Rating
                     style={{ paddingVertical: 10}}
                     imageSize={20}
                     showRating
+                    startingValue={0}
                 />
                 <Input
+                    leftIconContainerStyle={{marginRight:15}}
+                    containerStyle={{margin:6}}
                     placeholder='Author'
                     leftIcon={{ type: 'font-awesome', name: 'user' }}
                 />
                 <Input
+                    leftIconContainerStyle={{marginRight:10}}
+                    containerStyle={{margin:6}}
                     placeholder='Comment'
                     leftIcon={{ type: 'font-awesome', name: 'comment' }}
                 />
 
-                <Button style={styles.submitBtn} title='Submit' onPress={console.warn('Submit Clicked')}/>
-                <Button title='Cancel' onPress={this.toggleCommentModal}/>
+                <Button
+                    buttonStyle={styles.submitBtn}
+                    title='SUBMIT'
+                    type="raised"
+                    onPress={console.warn('Submit Clicked')}
+                    titleStyle={styles.btnText}
+                />
+                <Button
+                    buttonStyle={styles.cancelBtn}
+                    title='CANCEL'
+                    type="raised"
+                    onPress={this.toggleCommentModal}
+                    titleStyle={styles.btnText}
+                />
         </View>
         );
 
@@ -210,7 +231,18 @@ const styles = StyleSheet.create({
         alignItems: 'center'
     },
     submitBtn: {
-        backgroundColor: 'red'
+        backgroundColor: 'purple',
+        margin:10,
+    },
+    cancelBtn: {
+        backgroundColor: 'grey',
+        marginRight:10,
+        marginLeft:10,
+    },
+    btnText: {
+        fontSize: 14,
+        fontWeight: 'bold',
+        color:'white',
     }
 
 
