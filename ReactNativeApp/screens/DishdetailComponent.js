@@ -1,6 +1,5 @@
 import React from 'react';
 import {ScrollView, StyleSheet, Text, FlatList, View, ImageBackground, Modal} from 'react-native';
-import * as leaders from '../shared/leaders';
 import {Card ,ListItem, Rating, Input, Button} from "react-native-elements";
 
 class  DishDetail extends React.Component {
@@ -8,14 +7,19 @@ class  DishDetail extends React.Component {
     constructor(props){
         super(props);
         this.state = {
-            shouldShowModal: false
+            shouldShowModal: false,
+            comments: [],
+            comment: '',
+            rating:0,
+            author: '',
+
         }
     }
     render() {
         return (
             <ScrollView style={styles.container}>
                 {this.History()}
-                {this.CorporateLeaderShip()}
+                {this.commentsView()}
                 <Modal
                     animationType="slide"
                     transparent={false}
@@ -56,12 +60,12 @@ class  DishDetail extends React.Component {
         )
     };
 
-    CorporateLeaderShip =() => {
+    commentsView =() => {
         return (
             <Card title="Comments">
                 <FlatList
                     style={styles.list}
-                    data={leaders.default.leadersList}
+                    data={this.state.comments}
                     renderItem={({item,index}) => ( this.renderListItem(item,index))}
                     keyExtractor={item => item.id.toString()}
                 />
@@ -84,25 +88,28 @@ class  DishDetail extends React.Component {
                     imageSize={20}
                     showRating
                     startingValue={0}
+                    onFinishRating={number => this.setState({rating: number})}
                 />
                 <Input
                     leftIconContainerStyle={{marginRight:15}}
                     containerStyle={{margin:6}}
                     placeholder='Author'
                     leftIcon={{ type: 'font-awesome', name: 'user' }}
+                    onChangeText={value => this.setState({author: value})}
                 />
                 <Input
                     leftIconContainerStyle={{marginRight:10}}
                     containerStyle={{margin:6}}
                     placeholder='Comment'
                     leftIcon={{ type: 'font-awesome', name: 'comment' }}
+                    onChangeText={value => this.setState({comment: value})}
                 />
 
                 <Button
                     buttonStyle={styles.submitBtn}
                     title='SUBMIT'
                     type="raised"
-                    onPress={console.warn('Submit Clicked')}
+                    onPress={this.addComment}
                     titleStyle={styles.btnText}
                 />
                 <Button
@@ -121,7 +128,7 @@ class  DishDetail extends React.Component {
         return (
             <ListItem
                 key={index}
-                title={item.description}
+                title={item.comment}
                 titleStyle={styles.secondaryText}
                 subtitle={
                     <View style={{margin: 0 }}>
@@ -129,13 +136,35 @@ class  DishDetail extends React.Component {
                             style={{flex:1,alignItems: 'flex-start', paddingVertical: 10}}
                             readonly
                             imageSize={20}
+                            startingValue={item.rating}
                         />
-                        <Text style={styles.secondaryText}>{item.name}</Text>
+                        <Text style={styles.secondaryText}>{`--${item.author}, ${item.date}`}</Text>
                     </View>
                 }
                 hideChevron={true}
             />
         );
+    };
+
+    addComment = () => {
+        const { rating, author, comment} = this.state;
+
+         this.setState(state => {
+         const comments = state.comments.concat(
+             {
+                 id: state.comments.length +1 ,
+                 author: author,
+                 comment: comment,
+                 rating: rating,
+                 date: new Date().toISOString()
+             });
+          return {
+                 comments,
+                 value: '',
+             };
+         });
+         this.toggleCommentModal();
+
     }
 
 }
