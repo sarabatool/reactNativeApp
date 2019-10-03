@@ -18,7 +18,7 @@ class  DishDetail extends React.Component {
     render() {
         return (
             <ScrollView style={styles.container}>
-                {this.History()}
+                {this.dishHeader()}
                 {this.commentsView()}
                 <Modal
                     animationType="slide"
@@ -36,7 +36,7 @@ class  DishDetail extends React.Component {
     }
 
 
-    History =()=> {
+    dishHeader =()=> {
         return (
             <Card style={{flex:1}}>
                 <ImageBackground
@@ -53,12 +53,15 @@ class  DishDetail extends React.Component {
 
                 <Button
                     type="clear"
-                    icon={{ type: 'font-awesome', name: 'pencil' }}
+                    icon={{ type: 'font-awesome', name: 'pencil', color: "white" }}
                     onPress={this.toggleCommentModal}
+                    buttonStyle={styles.roundBtn}
+
                 />
             </Card>
         )
     };
+
 
     commentsView =() => {
         return (
@@ -257,7 +260,8 @@ const styles = StyleSheet.create({
         height:100,
         flexDirection: 'column',
         justifyContent: 'center',
-        alignItems: 'center'
+        alignItems: 'center',
+        resizeMode: 'contain',
     },
     submitBtn: {
         backgroundColor: 'purple',
@@ -272,7 +276,18 @@ const styles = StyleSheet.create({
         fontSize: 14,
         fontWeight: 'bold',
         color:'white',
-    }
+    },
+    roundBtn: {
+        margin:6,
+        height:50,
+        width: 50,
+        backgroundColor: 'purple',
+        borderRadius:100,
+        alignSelf: 'center',
+        alignItems: 'center',
+        justifyContent: 'center',
+    },
+
 
 
 });

@@ -18,8 +18,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/ReactNativeApp/screens/DishdetailComponent.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="181">
-              <caret line="75" column="4" selection-start-line="75" selection-start-column="4" selection-end-line="75" selection-end-column="4" />
+            <state relative-caret-position="274">
+              <caret line="280" column="17" selection-start-line="280" selection-start-column="17" selection-end-line="280" selection-end-column="17" />
               <folding>
                 <element signature="e#0#26#0" expanded="true" />
               </folding>
@@ -69,6 +69,9 @@
       <find>submitBtn</find>
       <find>addComment</find>
       <find>comment</find>
+      <find>dishHeader</find>
+      <find>leftIcon</find>
+      <find>roundBtn</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -160,12 +163,12 @@
       <workItem from="1569909473179" duration="7934000" />
       <workItem from="1569924010303" duration="4529000" />
       <workItem from="1569990302887" duration="14054000" />
-      <workItem from="1570079745190" duration="6508000" />
+      <workItem from="1570079745190" duration="9882000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="34712000" />
+    <option name="totallyTimeSpent" value="38086000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="78" y="26" width="1203" height="973" extended-state="0" />
@@ -343,8 +346,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/ReactNativeApp/screens/DishdetailComponent.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="181">
-          <caret line="75" column="4" selection-start-line="75" selection-start-column="4" selection-end-line="75" selection-end-column="4" />
+        <state relative-caret-position="274">
+          <caret line="280" column="17" selection-start-line="280" selection-start-column="17" selection-end-line="280" selection-end-column="17" />
           <folding>
             <element signature="e#0#26#0" expanded="true" />
           </folding>
