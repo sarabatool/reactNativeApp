@@ -154,6 +154,11 @@ class  DishDetail extends React.Component {
     addComment = () => {
         const { rating, author, comment} = this.state;
 
+        if(author.length <=0 || comment.length <= 0){
+            alert('Author or Comment field cannot be empty');
+            return;
+        }
+
          this.setState(state => {
          const comments = state.comments.concat(
              {
@@ -165,7 +170,9 @@ class  DishDetail extends React.Component {
              });
           return {
                  comments,
-                 value: '',
+                 author: '',
+                 comment: '',
+                 rating: 0,
              };
          });
          this.toggleCommentModal();
