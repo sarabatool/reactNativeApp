@@ -99,6 +99,7 @@ class  DishDetail extends React.Component {
                     placeholder='Author'
                     leftIcon={{ type: 'font-awesome', name: 'user' }}
                     onChangeText={value => this.setState({author: value})}
+                    inputStyle={{fontSize: 12}}
                 />
                 <Input
                     leftIconContainerStyle={{marginRight:10}}
@@ -106,6 +107,7 @@ class  DishDetail extends React.Component {
                     placeholder='Comment'
                     leftIcon={{ type: 'font-awesome', name: 'comment' }}
                     onChangeText={value => this.setState({comment: value})}
+                    inputStyle={{fontSize: 12}}
                 />
 
                 <Button
@@ -138,7 +140,7 @@ class  DishDetail extends React.Component {
                         <Rating
                             style={{flex:1,alignItems: 'flex-start', paddingVertical: 10}}
                             readonly
-                            imageSize={20}
+                            imageSize={15}
                             startingValue={item.rating}
                         />
                         <Text style={styles.secondaryText}>{`--${item.author}, ${item.date}`}</Text>
